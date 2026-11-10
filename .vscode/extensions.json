@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    "charliermarsh.ruff",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "vitest.explorer",
+    "ms-playwright.playwright",
+    "ms-azuretools.vscode-containers",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+    "editorconfig.editorconfig",
+    "humao.rest-client"
+  ]
+}

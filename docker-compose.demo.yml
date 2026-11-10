@@ -1,0 +1,9 @@
+# Public read-only demo preview (FR-31..FR-33):
+#   docker compose -f docker-compose.yml -f docker-compose.demo.yml up --build
+# Seeds the synthetic samples on start, then serves everything read-only.
+services:
+  backend:
+    environment:
+      APP_ENV: demo
+      DEMO_READ_ONLY: "true"
+      SEED_SAMPLES: "true"

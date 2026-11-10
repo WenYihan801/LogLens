@@ -1,0 +1,58 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend: FastAPI (debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/.env",
+      "python": "${workspaceFolder}/backend/.venv/bin/python",
+      "jinja": true,
+      "justMyCode": true
+    },
+    {
+      "name": "Backend: pytest current file",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["${file}", "-q"],
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/.venv/bin/python",
+      "justMyCode": false
+    },
+
+      "name": "Backend: seed samples",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "app.scripts.seed_samples",
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/.env",
+      "python": "${workspaceFolder}/backend/.venv/bin/python"
+    },
+    {
+      "name": "Frontend: Vite",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/frontend"
+    },
+    {
+      "name": "Frontend: Chrome (attach to Vite)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend/src"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full stack (API + Vite)",
+      "configurations": ["Backend: FastAPI (debug)", "Frontend: Vite"],
+      "preLaunchTask": "db: start",
+      "stopAll": true
+    }
+  ]
+}

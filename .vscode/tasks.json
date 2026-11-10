@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "setup", "type": "shell", "command": "make setup", "problemMatcher": [] },
+    { "label": "db: start", "type": "shell", "command": "docker compose up -d db && sleep 2 && make migrate", "problemMatcher": [] },
+    { "label": "db: stop", "type": "shell", "command": "make db-down", "problemMatcher": [] },
+    { "label": "seed samples", "type": "shell", "command": "make seed", "problemMatcher": [] },
+    {
+      "label": "test: all",
+      "type": "shell",
+      "command": "make test",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    { "label": "test: backend (PostgreSQL)", "type": "shell", "command": "make test-backend-pg", "group": "test", "problemMatcher": [] },
+    { "label": "test: e2e", "type": "shell", "command": "make e2e", "group": "test", "problemMatcher": [] },
+    { "label": "lint", "type": "shell", "command": "make lint", "problemMatcher": [] },
+    { "label": "docker: up", "type": "shell", "command": "make up", "problemMatcher": [] },
+    { "label": "docker: down", "type": "shell", "command": "make down", "problemMatcher": [] }
+  ]
+}

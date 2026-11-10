@@ -1,0 +1,51 @@
+{
+  // ---- Python (backend/.venv created by `make venv`)
+  "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
+  "python.analysis.extraPaths": ["${workspaceFolder}/backend"],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.cwd": "${workspaceFolder}/backend",
+  "python.testing.pytestArgs": ["tests"],
+  "python.envFile": "${workspaceFolder}/.env",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports": "explicit" }
+  },
+
+  // ---- Frontend
+  "eslint.workingDirectories": ["./frontend"],
+  "typescript.tsdk": "frontend/node_modules/typescript/lib",
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.formatOnSave": true },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.formatOnSave": true },
+  "[json][jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "prettier.printWidth": 120,
+  "tailwindCSS.experimental.configFile": "frontend/src/index.css",
+  "vitest.rootConfig": "frontend/vite.config.ts",
+  "playwright.reuseBrowser": true,
+
+  // ---- Database (SQLTools; password comes from your .env)
+  "sqltools.connections": [
+    {
+      "name": "LogLens (Docker)",
+      "driver": "PostgreSQL",
+      "server": "localhost",
+      "port": 5432,
+      "database": "loglens",
+      "username": "loglens",
+      "askForPassword": true
+    }
+  ],
+
+  // ---- Editor / files
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": { "**/node_modules": true, "**/dist": true, "backend/.venv": true },
+  "files.associations": { "*.log": "log" },
+  "terminal.integrated.defaultProfile.osx": "zsh"
+}
