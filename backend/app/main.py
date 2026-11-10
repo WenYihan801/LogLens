@@ -81,7 +81,8 @@ def create_app() -> FastAPI:
     register_error_handlers(app)
     app.include_router(api_router)
 
-    @app.get("/health", tags=["meta"])
+    # HEAD is accepted too: uptime monitors and load balancers often probe with it.
+    @app.api_route("/health", methods=["GET", "HEAD"], tags=["meta"])
     def health():
         db_ok = True
         try:
